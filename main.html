@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generar Cotización</title>
+  <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap-grid.min.css">
+</head>
+
+<body>
+  <div>
+    <div class="container">
+      <h1>Cotización</h1>
+    </div>
+
+    <form action="generar_pdf.php" method="POST">
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" name="fecha" required><br><br>
+
+      <label for="cliente">Cliente:</label>
+      <input type="text" id="cliente" name="cliente" required><br><br>
+
+      <label for="contacto">Contacto:</label>
+      <input type="text" id="contacto" name="contacto" required><br><br>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="text" id="telefono" name="telefono" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="columnas">Número de columnas:</label>
+      <input type="number" id="columnas" min="1" value="3" required>
+      <button type="button" onclick="generarColumnas()">Generar Columnas</button><br><br>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr>
+            <td><input type="text" name="item[]" required></td>
+            <td><input type="text" name="description[]" required></td>
+            <td><input type="number" name="price[]" required></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="infoNota">
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" required><br><br>
+
+        <label for="cantidadLetras">(Cantidad en letras):</label>
+        <input type="text" id="cantidadLetras" name="cantidadLetras" required><br><br>
+
+        <label for="nota">Nota:</label>
+        <input type="text" id="nota" name="nota" required><br><br>
+
+        <button type="submit">Generar PDF</button>
+      </div>
+    </form>
+  </div>
+  <script defer src="main.js"></script>
+</body>
+</html>
